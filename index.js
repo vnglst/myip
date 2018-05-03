@@ -2,6 +2,8 @@ const requestIp = require('request-ip')
 const express = require('express')
 const app = express()
 
+const styles = require('./styles')
+
 const PORT = 3000
 
 const html = ip => `
@@ -9,47 +11,9 @@ const html = ip => `
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>What is My IP Address?</title>
-  <meta name="description" content="">
+  <meta name="description" content="Quickly find you IP Address and copy paste it!">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-<style>
-  html, body {
-    height: 100%;
-  }
-  body {
-    margin: 0;
-  }
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  input, select {
-    max-width: 200px;
-    font-size: 16px;
-    padding: 14px 24px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  button {
-    padding: 0px 0px 0 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: transparent;
-    box-sizing: border-box;
-  }
-  .icon {
-    width: 1em;
-    height: 1em;
-  }
-  .icon-clippy {
-    font-size: 32px;
-  }
-</style>
+  <style>${styles()}</style>
 <html>
 <body>
 
@@ -72,7 +36,7 @@ const html = ip => `
 <div>
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script>
   new ClipboardJS('.btn');
 </script>
